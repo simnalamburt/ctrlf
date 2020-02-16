@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# fzf로 원하는 파일 내용을 검색한 뒤, vim으로 열어주는 프로그램.
-# 실시간 미리보기와 다중선택도 지원한다.
+# A program that searches for a string in a directory. If you type enter, vim
+# opens the file. It also supports live preview and multiple selection.
 #
 # Requirements:
 #   rg
@@ -13,21 +13,31 @@
 set -euo pipefail; IFS=$'\n\t'
 
 PREVIEW='
-  LINE={2}
-  LINE=${LINE%?}
-  BEGIN=$((LINE > FZF_PREVIEW_LINES/2 ? LINE - FZF_PREVIEW_LINES/2 + 1 : 1))
-  END=$((BEGIN + FZF_PREVIEW_LINES - 1))
+  NUM={2}
+  NUM=${NUM%?}
+  BEGIN=$((NUM > LINES/2 ? NUM - LINES/2 + 1 : 1))
+  END=$((BEGIN + LINES - 1))
 '
 
 # bat이 없을경우 sed를 bat 대신 사용한다.
 if [ -x "$(command -v bat)" ]; then
-  PREVIEW=$PREVIEW'; bat -ppH$LINE --color=always -r$BEGIN:$END {1}'
+  PREVIEW=$PREVIEW'
+    bat -ppH$NUM --color=always -r$BEGIN:$END {1}
+  '
 else
-  PREVIEW=$PREVIEW'; sed -n "${BEGIN},${END}p" {1}'
+  PREVIEW=$PREVIEW'
+    if (( NUM > 1 )); then
+      sed -n "$((BEGIN)),$((NUM-1))p" {1}
+    fi
+    printf "\e[33m"
+    sed -n "$((NUM))p" {1}
+    printf "\e[0m"
+    sed -n "$((NUM+1)),$((END))p" {1}
+  '
 fi
 
 ARGS=$(
-  rg --no-config -nH0 --color=always '\A' -r'🌏🔥🐸🐹😂😍😘' |
+  SHELL=/bin/bash rg --no-config -nH0 --color=always '\A' -r'🌏🔥🐸🐹😂😍😘 ' |
   fzf -m -d'\0|🌏🔥🐸🐹😂😍😘' -n'2..' --with-nth='1,3..' \
     --ansi --color=border:0 --layout=reverse --preview="${PREVIEW}" |
   rg --no-config -a '\A(.*)\x00(.*):🌏🔥🐸🐹😂😍😘(.*)$' -r'+"tabnew +$2 $1"'
