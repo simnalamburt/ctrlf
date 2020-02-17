@@ -19,4 +19,15 @@ zplugin light simnalamburt/ctrlf
 
 Special thanks to https://github.com/xnuk/
 
+
+&nbsp;
+
+--------
+
+The source code of *ctrlf* is primarily distributed under the terms of the [GNU
+Affero General Public License v3.0] or any later version. See [COPYRIGHT] for
+details.
+
 [zplugin]: https://github.com/zdharma/zplugin
+[GNU Affero General Public License v3.0]: LICENSE
+[COPYRIGHT]: COPYRIGHT
