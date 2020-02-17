@@ -10,11 +10,13 @@ Just try press <kbd>Ctrl</kbd> + <kbd>F</kbd>.
 zplugin light simnalamburt/ctrlf
 ```
 
+![Sample video of ctrlf](https://raw.githubusercontent.com/simnalamburt/i/master/ctrlf/sample.gif)
+
 ### Requirements
 - rg
 - fzf
 - bat *(optional)*
 
-Special thanks to @xnuk https://github.com/xnuk/
+Special thanks to https://github.com/xnuk/
 
 [zplugin]: https://github.com/zdharma/zplugin
