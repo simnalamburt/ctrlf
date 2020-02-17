@@ -12,13 +12,16 @@ zplugin light simnalamburt/ctrlf
 
 ![Sample video of ctrlf](https://raw.githubusercontent.com/simnalamburt/i/master/ctrlf/sample.gif)
 
-### Requirements
+#### Requirements
 - rg
 - fzf
 - bat *(optional)*
 
-Special thanks to https://github.com/xnuk/
+#### References
+- https://twitter.com/x_nuk/status/1181900294067609606
+- https://twitter.com/simnalamburt/status/1185889336354435073
 
+Special thanks to https://github.com/xnuk/
 
 &nbsp;
 
