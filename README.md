@@ -3,11 +3,11 @@ ctrlf
 A program that interactively searches for a string in a directory. If you type
 enter, vim opens the file. It also supports live preview and multiple selection.
 
-Try it with [zplugin], or your favorite plugin manager. It supports bash too.
+Try it with [zinit], or your favorite plugin manager. It supports bash too.
 Just try press <kbd>Ctrl</kbd> + <kbd>F</kbd>.
 
 ```zsh
-zplugin light simnalamburt/ctrlf
+zinit light simnalamburt/ctrlf
 ```
 
 ![Sample video of ctrlf](https://raw.githubusercontent.com/simnalamburt/i/master/ctrlf/sample.gif)
@@ -31,6 +31,6 @@ The source code of *ctrlf* is primarily distributed under the terms of the [GNU
 Affero General Public License v3.0] or any later version. See [COPYRIGHT] for
 details.
 
-[zplugin]: https://github.com/zdharma/zplugin
+[zinit]: https://github.com/zdharma/zinit
 [GNU Affero General Public License v3.0]: LICENSE
 [COPYRIGHT]: COPYRIGHT
